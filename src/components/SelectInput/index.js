@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ItemWrapper = styled.div `
+const ItemWrapper = styled.div`
   input[type="checkbox"] {
     display: none;
   }
@@ -37,50 +37,45 @@ const ItemWrapper = styled.div `
   }
 `;
 
-const SelectInputWrapper = styled.div `
+const SelectInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
 `;
 
 function Item({ children, onChange }) {
-    return ( <
-        ItemWrapper >
-        <
-        label >
-        <
-        input type = "checkbox"
-        onChange = { onChange }
-        /> <span / >
-        <
-        div > { children } < /div>{" "} <
-        /label>{" "} <
-        /ItemWrapper>
-    );
+  return (
+    <ItemWrapper>
+      <label>
+        <input type="checkbox" onChange={onChange} /> <span />
+        <div> {children} </div>{" "}
+      </label>{" "}
+    </ItemWrapper>
+  );
 }
 
 function SelectInput({ answer, setAnswer, options }) {
-    const handleChange = (checked, index) => {
-        if (checked) {
-            setAnswer([...answer, options.items[index]]);
-        } else {
-            setAnswer(answer.filter(item => item !== options.items[index]));
-        }
-        console.log(answer);
-    };
+  const handleChange = (checked, index) => {
+    if (checked) {
+      setAnswer([...answer, options.items[index]]);
+    } else {
+      setAnswer(answer.filter((item) => item !== options.items[index]));
+    }
+  };
 
-    return ( <
-        SelectInputWrapper > { " " } {
-            options.items.map((item, index) => {
-                return ( <
-                    Item key = { index }
-                    onChange = { e => handleChange(e.target.checked, index) } > { " " } { item } { " " } <
-                    /Item>
-                );
-            })
-        } { " " } <
-        /SelectInputWrapper>
-    );
+  return (
+    <SelectInputWrapper>
+      {" "}
+      {options.items.map((item, index) => {
+        return (
+          <Item key={index} onChange={(e) => handleChange(e.target.checked, index)}>
+            {" "}
+            {item}{" "}
+          </Item>
+        );
+      })}{" "}
+    </SelectInputWrapper>
+  );
 }
 
 export default SelectInput;

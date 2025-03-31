@@ -6,16 +6,12 @@ import { StyleSheetManager } from "styled-components";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render( <
-    BrowserRouter >
-    <
-    StyleSheetManager shouldForwardProp = { prop => prop !== "theme" } >
-    <
-    React.StrictMode >
-    <
-    App / >
-    <
-    /React.StrictMode> <
-    /StyleSheetManager> <
-    /BrowserRouter>,
+root.render(
+  <BrowserRouter>
+    <StyleSheetManager shouldForwardProp={(prop) => prop !== "theme"}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>{" "}
+    </StyleSheetManager>{" "}
+  </BrowserRouter>
 );

@@ -3,21 +3,17 @@ import TextareaInput from "../TextareaInput";
 import TextInput from "../TextInput";
 
 function Body({ type, answer, setAnswer, options = {} }) {
-    let InputComponent = null;
+  let InputComponent = null;
 
-    if (type === "select") {
-        InputComponent = SelectInput;
-    } else if (type === "text") {
-        InputComponent = TextInput;
-    } else if (type === "textarea") {
-        InputComponent = TextareaInput;
-    }
+  if (type === "select") {
+    InputComponent = SelectInput;
+  } else if (type === "text") {
+    InputComponent = TextInput;
+  } else if (type === "textarea") {
+    InputComponent = TextareaInput;
+  }
 
-    return <div > {
-        InputComponent && < InputComponent answer = { answer }
-        setAnswer = { setAnswer }
-        options = { options }
-        />}</div > ;
-    }
+  return <div> {InputComponent && <InputComponent answer={answer} setAnswer={setAnswer} options={options} />}</div>;
+}
 
-    export default Body;
+export default Body;

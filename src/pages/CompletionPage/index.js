@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CompletionPageContainer = styled.div `
+const CompletionPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@ const CompletionPageContainer = styled.div `
 `;
 
 function CompletionPage() {
-    return <CompletionPageContainer > 완료 페이지 < /CompletionPageContainer>;
+  return <CompletionPageContainer> 완료 페이지 </CompletionPageContainer>;
 }
 
 export default CompletionPage;
