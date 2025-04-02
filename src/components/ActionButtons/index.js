@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import styled from "styled-components";
 import Button from "../Button";
 
 function ActionButtons({ questionLength, step }) {
@@ -7,7 +7,7 @@ function ActionButtons({ questionLength, step }) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <ActionButtonsWrapper>
       {" "}
       {step > 0 && (
         <Button type="TERTIARY" onClick={() => navigate(`${step - 1}`)}>
@@ -26,8 +26,15 @@ function ActionButtons({ questionLength, step }) {
           다음{" "}
         </Button>
       )}{" "}
-    </div>
+    </ActionButtonsWrapper>
   );
 }
+
+const ActionButtonsWrapper = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-top: 72px;
+  justify-content: center;
+`;
 
 export default ActionButtons;
