@@ -1,11 +1,29 @@
+import { useParams } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import styled from "styled-components";
+
+import { answersState } from "../../stores/answers/atom";
+import { questionsState } from "../../stores/questions/atom";
 import ActionButtons from "../ActionButtons";
 import Body from "../Body";
 import Desc from "../Desc";
 import Title from "../Title";
 
-import styled from "styled-components";
+function QuestionBox() {
+  const params = useParams();
+  const step = parseInt(params.step);
+  const questionList = useRecoilValue(questionsState);
+  const [answerList, setAnswerList] = useRecoilState(answersState);
 
-function QuestionBox({ question, questionLength, step, answer, setAnswer }) {
+  const question = questionList[step];
+  const answer = answerList[step];
+  const setAnswer = (newAnswer) => {
+    const newAnswerList = [...answerList];
+    newAnswerList[step] = newAnswer;
+
+    return newAnswerList;
+  };
+
   return (
     <QuestionBoxWrapper>
       <Title> {question.title} </Title> <Desc> {question.desc} </Desc>
@@ -15,7 +33,7 @@ function QuestionBox({ question, questionLength, step, answer, setAnswer }) {
         setAnswer={setAnswer}
         options={question.options}
       />{" "}
-      <ActionButtons questionLength={questionLength} step={step} />{" "}
+      <ActionButtons />{" "}
     </QuestionBoxWrapper>
   );
 }

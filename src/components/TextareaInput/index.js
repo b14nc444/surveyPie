@@ -10,10 +10,6 @@ const Input = styled.input`
   outline: none;
   height: 200px;
   resize: none;
-
-  &:focus {
-    border-color: #2196f3;
-  }
 `;
 
 function TextareaInput({ answer, setAnswer, options }) {

@@ -8,10 +8,6 @@ const Input = styled.input`
   font-size: 18px;
   outline: none;
   width: 100%;
-
-  &:focus {
-    border-color: #2196f3;
-  }
 `;
 
 function TextInput({ answer, setAnswer, options }) {
