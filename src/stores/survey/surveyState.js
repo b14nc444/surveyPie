@@ -1,8 +1,8 @@
 import { selector } from "recoil";
 
-import getSurvey from "../../services/apis/getSurvey";
+import getSurvey from "../../services/getSurvey";
 
-const SurveyState = selector({
+const surveyState = selector({
   key: "surveyState",
   get: async () => {
     const res = await getSurvey(window.location.pathname.split("/")[2]);
@@ -11,4 +11,4 @@ const SurveyState = selector({
   },
 });
 
-export default SurveyState;
+export default surveyState;

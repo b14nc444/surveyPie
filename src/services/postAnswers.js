@@ -1,7 +1,7 @@
-import mainApi from "./apis/mainApi";
+import mainApi from "./axiosInstances/mainApi";
 
 function postAnswers(surveyId, data) {
-  mainApi.post(`/answers`, { surveyId, data });
+  mainApi.post("/answers", { surveyId, data });
 }
 
 export default postAnswers;

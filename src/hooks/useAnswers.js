@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 
-import { answersState } from "../stores/answers/atom";
+import answersState from "../stores/answers/atom";
 
 function useAnswers() {
   return useRecoilValue(answersState);

@@ -9,8 +9,9 @@ function SurveyPage() {
     <Suspense fallback={<div> Loading... </div>}>
       {" "}
       <SurveyPageWrapper>
+        {" "}
         <ProgressIndicator />
-        <QuestionBox />
+        <QuestionBox />{" "}
       </SurveyPageWrapper>{" "}
     </Suspense>
   );

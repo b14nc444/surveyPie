@@ -3,8 +3,8 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 
 import useAnswers from "../../hooks/useAnswers";
+import useSurveyId from "../../hooks/useServeyId";
 import useStep from "../../hooks/useStep";
-import useSurveyId from "../../hooks/useSurveyId";
 import postAnswers from "../../services/postAnswers";
 import questionsLengthState from "../../stores/survey/questionsLengthState";
 import Button from "../Button";
@@ -12,7 +12,7 @@ import Button from "../Button";
 function ActionButtons() {
   const step = useStep();
   const surveyId = useSurveyId();
-  const answers = useAnswers();
+  const answerList = useAnswers();
   const questionLength = useRecoilValue(questionsLengthState);
 
   const isLastStep = step === questionLength - 1;
@@ -31,7 +31,7 @@ function ActionButtons() {
         <Button
           type="PRIMARY"
           onClick={() => {
-            postAnswers(surveyId, answers);
+            postAnswers(surveyId, answerList);
             navigate("/done");
           }}
         >
