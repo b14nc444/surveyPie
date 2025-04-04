@@ -9,10 +9,12 @@ function useCurrentAnswer() {
 
   const answer = answerList[step];
   const setAnswer = (newAnswer) => {
-    const newAnswerList = [...answerList];
-    newAnswerList[step] = newAnswer;
+    setAnswerList((answerList) => {
+      const newAnswerList = [...answerList];
+      newAnswerList[step] = newAnswer;
 
-    return newAnswerList;
+      return newAnswerList;
+    });
   };
 
   return { answer, setAnswer };

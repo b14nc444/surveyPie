@@ -12,7 +12,7 @@ const Input = styled.input`
   resize: none;
 `;
 
-function TextareaInput({ answer, setAnswer, options }) {
+function TextareaInput({ answer = "", setAnswer, options }) {
   return (
     <Input
       type="textarea"

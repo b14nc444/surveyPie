@@ -10,7 +10,7 @@ const Input = styled.input`
   width: 100%;
 `;
 
-function TextInput({ answer, setAnswer, options }) {
+function TextInput({ answer = "", setAnswer, options }) {
   return (
     <Input
       type="text"
