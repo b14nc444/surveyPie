@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import axios from "axios";
 
 function CompletionPage() {
-  return <div> 완료 페이지 </div>;
+  axios.get("http://localhost:3001/surveys").then((res) => {
+    console.log("res", res.data);
+  });
 }
 
 export default CompletionPage;
