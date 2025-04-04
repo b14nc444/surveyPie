@@ -54,9 +54,9 @@ function Item({ children, onChange }) {
   );
 }
 
-function SelectInput({ answer, setAnswer, options }) {
-  const handleChange = (checked, index) => {
-    if (checked) {
+function SelectInput({ answer = [], setAnswer, options }) {
+  const handleChange = (isChecked, index) => {
+    if (isChecked) {
       setAnswer([...answer, options.items[index]]);
     } else {
       setAnswer(answer.filter((item) => item !== options.items[index]));

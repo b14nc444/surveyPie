@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 
-import { answersState } from "../stores/answers/atom";
+import answersState from "../stores/answers/atom";
 import useStep from "./useStep";
 
 function useCurrentAnswer() {
@@ -9,10 +9,12 @@ function useCurrentAnswer() {
 
   const answer = answerList[step];
   const setAnswer = (newAnswer) => {
-    const newAnswerList = [...answerList];
-    newAnswerList[step] = newAnswer;
+    setAnswerList((answerList) => {
+      const newAnswerList = [...answerList];
+      newAnswerList[step] = newAnswer;
 
-    return newAnswerList;
+      return newAnswerList;
+    });
   };
 
   return { answer, setAnswer };

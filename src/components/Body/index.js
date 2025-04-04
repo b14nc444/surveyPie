@@ -1,8 +1,8 @@
+import styled from "styled-components";
+
 import SelectInput from "../SelectInput";
 import TextareaInput from "../TextareaInput";
 import TextInput from "../TextInput";
-
-import styled from "styled-components";
 
 function Body({ type, answer, setAnswer, options = {} }) {
   let InputComponent = null;
