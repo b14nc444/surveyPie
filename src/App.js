@@ -27,10 +27,11 @@ const AppWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #e5e5e5;
+  background-color: #f5f5f5;
 `;
 
 const Container = styled.div`
+  position: relative;
   width: 720px;
   min-height: 500px;
   background-color: #ffffff;
