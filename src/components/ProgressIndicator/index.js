@@ -8,7 +8,7 @@ import Bar from "../Bar";
 
 function ProgressIndicator() {
   const length = useRecoilValue(questionsLengthState);
-  const answerList = useAnswers();
+  const [answerList] = useAnswers();
   const step = useStep();
 
   const bars = [];

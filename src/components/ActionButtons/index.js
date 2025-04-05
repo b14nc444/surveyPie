@@ -15,7 +15,7 @@ import questionsLengthState from "../../stores/survey/questionsLengthState";
 function ActionButtons() {
   const step = useStep();
   const surveyId = useSurveyId();
-  const answerList = useAnswers();
+  const [answerList, setAnswerList] = useAnswers();
   const questionLength = useRecoilValue(questionsLengthState);
   const isRequired = useRequiredOption();
 
@@ -42,6 +42,7 @@ function ActionButtons() {
             console.log(postAnswers);
             postAnswers(surveyId, answerList)
               .then(() => {
+                setAnswerList([]);
                 navigate(`/done/${surveyId}`);
               })
               .catch((e) => {
