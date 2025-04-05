@@ -1,5 +1,50 @@
 import styled from "styled-components";
 
+function Item({ children, checked, onChange }) {
+  return (
+    <ItemWrapper>
+      <label>
+        <input type="checkbox" checked={checked} onChange={onChange} /> <span />
+        <div> {children} </div>{" "}
+      </label>{" "}
+    </ItemWrapper>
+  );
+}
+
+function SelectInput({ answer = [], setAnswer, options }) {
+  const handleChange = (isChecked, index) => {
+    if (isChecked) {
+      const max = options.max;
+
+      if (answer.length >= max) {
+        alert(`최대 ${max}개까지만 선택할 수 있습니다.`);
+        return;
+      }
+      setAnswer([...answer, options.items[index]]);
+    } else {
+      setAnswer(answer.filter((item) => item !== options.items[index]));
+    }
+  };
+
+  return (
+    <SelectInputWrapper>
+      {" "}
+      {options.items.map((item, index) => {
+        return (
+          <Item
+            key={index}
+            checked={answer.includes(item)}
+            onChange={(e) => handleChange(e.target.checked, index)}
+          >
+            {" "}
+            {item}{" "}
+          </Item>
+        );
+      })}{" "}
+    </SelectInputWrapper>
+  );
+}
+
 const ItemWrapper = styled.div`
   input[type="checkbox"] {
     display: none;
@@ -42,40 +87,5 @@ const SelectInputWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
 `;
-
-function Item({ children, onChange }) {
-  return (
-    <ItemWrapper>
-      <label>
-        <input type="checkbox" onChange={onChange} /> <span />
-        <div> {children} </div>{" "}
-      </label>{" "}
-    </ItemWrapper>
-  );
-}
-
-function SelectInput({ answer = [], setAnswer, options }) {
-  const handleChange = (isChecked, index) => {
-    if (isChecked) {
-      setAnswer([...answer, options.items[index]]);
-    } else {
-      setAnswer(answer.filter((item) => item !== options.items[index]));
-    }
-  };
-
-  return (
-    <SelectInputWrapper>
-      {" "}
-      {options.items.map((item, index) => {
-        return (
-          <Item key={index} onChange={(e) => handleChange(e.target.checked, index)}>
-            {" "}
-            {item}{" "}
-          </Item>
-        );
-      })}{" "}
-    </SelectInputWrapper>
-  );
-}
 
 export default SelectInput;
