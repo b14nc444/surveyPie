@@ -32,24 +32,31 @@ const Button = styled.button`
   border-radius: 10px;
   font-weight: bold;
   font-size: 18px;
-  border: 1px solid ${({ type }) => colorMap[type].DEFAULT.BORDER};
+  border: 1px solid
+    ${({ type }) => (colorMap[type].DEFAULT.BORDER ? colorMap[type].DEFAULT.BORDER : "transparent")};
 
   &:hover {
     color: ${({ type }) => colorMap[type].HOVER.COLOR};
     background-color: ${({ type }) => colorMap[type].HOVER.BACKGROUND_COLOR};
-    border: 1px solid ${({ type }) => colorMap[type].HOVER.BORDER};
+    border: 1px solid
+      ${({ type }) =>
+        colorMap[type].DEFAULT.BORDER ? colorMap[type].DEFAULT.BORDER : "transparent"};
   }
 
   &:active {
     color: ${({ type }) => colorMap[type].PRESSED.COLOR};
     background-color: ${({ type }) => colorMap[type].PRESSED.BACKGROUND_COLOR};
-    border: 1px solid ${({ type }) => colorMap[type].PRESSED.BORDER};
+    border: 1px solid
+      ${({ type }) =>
+        colorMap[type].DEFAULT.BORDER ? colorMap[type].DEFAULT.BORDER : "transparent"};
   }
 
   &:disabled {
     background-color: ${({ type }) => colorMap[type].DISABLED.BACKGROUND_COLOR};
     color: ${({ type }) => colorMap[type].DISABLED.COLOR};
-    border: 1px solid ${({ type }) => colorMap[type].DISABLED.BORDER};
+    border: 1px solid
+      ${({ type }) =>
+        colorMap[type].DEFAULT.BORDER ? colorMap[type].DEFAULT.BORDER : "transparent"};
     cursor: not-allowed;
   }
 `;

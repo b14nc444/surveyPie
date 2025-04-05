@@ -29,7 +29,7 @@ function ActionButtons() {
     <ActionButtonsWrapper>
       {" "}
       {step > 0 && (
-        <Button type="TERTIARY" onClick={() => navigate(`${step - 1}`)}>
+        <Button type="SECONDARY" onClick={() => navigate(`${step - 1}`)}>
           {" "}
           이전{" "}
         </Button>
