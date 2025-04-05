@@ -25,12 +25,13 @@ const colorMap = {
 
 const Button = styled.button`
   padding: 16px 24px;
-  width: 200px;
+  min-width: 200px;
 
   color: ${({ type }) => colorMap[type].DEFAULT.COLOR};
   background-color: ${({ type }) => colorMap[type].DEFAULT.BACKGROUND_COLOR};
   border-radius: 10px;
   font-weight: bold;
+  font-size: 18px;
   border: 1px solid ${({ type }) => colorMap[type].DEFAULT.BORDER};
 
   &:hover {
